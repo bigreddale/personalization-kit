@@ -6,7 +6,7 @@
   {
     "matches": ["http://www1.macys.com/shop*"],
     "css": ["widget.css"],
-    "js": ["jquery-1.9.1.js", "widget.js"]
+    "js": ["jquery-1.9.1.js", "inject.js"]
   }
 	]
 }
