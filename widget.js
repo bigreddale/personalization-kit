@@ -1,4 +1,5 @@
  var P13NEngine = {}; 
+ 
  P13NEngine.init = function() {
    var facet,
        facets = [
@@ -7,6 +8,7 @@
                  ];
    
    if($('#facets').length) {
+     console.warn('facets found');
      if(!$('#PERSONALIZATION').length) {
        $('#facets').prepend('<div class="facet"> \
            <div class="facet-name"> \
@@ -33,42 +35,47 @@
          facet.children().click();
        }
      }
+   } else {
+     console.warn('facets not found');
+     setTimeout(P13NEngine.init, 500);
    }; 
    
-   P13NEngine.highlight = function(obj) {
-     var target = $(obj.target);
-     if(!target.is('li')) {
-       target = target.parent('li');
-     };
-     
-     if(!target.hasClass('selected')) {
-       if(obj.type === "mouseenter") {
-         target.addClass('active-facet-list');
-         target.find('span').addClass('facet-item-highlight');
-       } else {
-         target.removeClass('active-facet-list');
-         target.find('span').removeClass('facet-item-highlight');         
-       }
-     }
-   };
-     
-   P13NEngine.select = function(obj) {
-     var target = $(obj.target);
-     if(!target.is('li')) {
-       target = target.parent('li');
-     };
-     
-     target.toggleClass('selected');
-     target.removeClass('active-facet-list');
-     target.find('span').removeClass('facet-item-highlight');         
-   };
-     
  
  }; 
   
+ P13NEngine.highlight = function(obj) {
+   var target = $(obj.target);
+   if(!target.is('li')) {
+     target = target.parent('li');
+   };
+   
+   if(!target.hasClass('selected')) {
+     if(obj.type === "mouseenter") {
+       target.addClass('active-facet-list');
+       target.find('span').addClass('facet-item-highlight');
+     } else {
+       target.removeClass('active-facet-list');
+       target.find('span').removeClass('facet-item-highlight');         
+     }
+   }
+ };
+   
+ P13NEngine.select = function(obj) {
+   var target = $(obj.target);
+   if(!target.is('li')) {
+     target = target.parent('li');
+   };
+   
+   target.toggleClass('selected');
+   target.removeClass('active-facet-list');
+   target.find('span').removeClass('facet-item-highlight');         
+ };
+   
   
 
- 
-  P13NEngine.init();
+ $(document).ready(function(){
+   P13NEngine.init();
+   console.warn('loaded init');
+ });
   
 
