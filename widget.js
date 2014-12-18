@@ -8,7 +8,7 @@
    
    if($('#facets').length) {
      if(!$('#PERSONALIZATION').length) {
-       $('#facets').prepend('<div class="facet selected"> \
+       $('#facets').prepend('<div class="facet"> \
            <div class="facet-name"> \
              <h2 id="PERSONALIZATION">Shop For</h2>\
            </div>\
@@ -25,6 +25,7 @@
      }
      
      $("#PERSONALIZATION").parent().parent().find("ul").on('mouseenter mouseleave', 'li', P13NEngine.highlight);
+     $("#PERSONALIZATION").parent().parent().find("ul").on('click', 'li', P13NEngine.select);
    
      for(i = 0; i < facets.length; i++) {
        facet = facets[i];
@@ -41,8 +42,13 @@
      };
      
      if(!target.hasClass('selected')) {
-       target.toggleClass('active-facet-list');
-       target.find('span').toggleClass('facet-item-highlight');
+       if(obj.type === "mouseenter") {
+         target.addClass('active-facet-list');
+         target.find('span').addClass('facet-item-highlight');
+       } else {
+         target.removeClass('active-facet-list');
+         target.find('span').removeClass('facet-item-highlight');         
+       }
      }
    };
      
@@ -53,11 +59,12 @@
      };
      
      target.toggleClass('selected');
+     target.removeClass('active-facet-list');
+     target.find('span').removeClass('facet-item-highlight');         
    };
      
  
  }; 
-$(document).ready(function(){
   
   
 
@@ -65,4 +72,3 @@ $(document).ready(function(){
   P13NEngine.init();
   
 
-});
