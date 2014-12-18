@@ -1,0 +1,12 @@
+{
+	"manifest_version": 2,
+	"name": "Personalization Kit",
+	"version": "0.1",
+  "content_scripts": [
+  {
+    "matches": ["http://www1.macys.com/shop*"],
+    "css": ["widget.css"],
+    "js": ["jquery-1.9.1.js", "widget.js"]
+  }
+	]
+}
