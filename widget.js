@@ -1,7 +1,7 @@
-  
+ var P13NEngine = {}; 
   
 $(document).ready(function(){
-  var P13NEngine = {};
+  
   
   P13NEngine.init = function() {
     var facet,
