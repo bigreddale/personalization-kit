@@ -10,33 +10,23 @@
    if($('#facets').length) {
      console.warn('facets found');
      if(!$('#PERSONALIZATION').length) {
-/*       $('#facets').prepend('<div class="facet"> \
-           <div class="facet-name"> \
-             <h2 id="PERSONALIZATION">Shop For</h2>\
-           </div>\
-           <div class="clear-all">clear</div> \
-           <div class="clearFloats"></div> \
-           <ul class="defaultFacet" height="120" style="height: auto;"> \
-           </ul>\
-           </div>');
-       
-     }
-*/   
-     $('#facets').prepend($('<div>').attr('class','facet')
-         .append($('<div>').attr('class','facet-name').append($('<h2>').attr('id','PERSONALIZATION').html('Shop For')))
-         .append($('<div>').attr('class','clear-all').html('clear'))
-         .append($('<div>').attr('class','clearFloats'))
-         .append($('<ul>').attr('class','defaultFacet'))         
-     );
+    
+       $('#facets').prepend($('<div>').attr('class','facet')
+           .append($('<div>').attr('class','facet-name').append($('<h2>').attr('id','PERSONALIZATION').html('Shop For')))
+           .append($('<div>').attr('class','clear-all').html('clear'))
+           .append($('<div>').attr('class','clearFloats'))
+           .append($('<ul>').attr('class','defaultFacet'))         
+       );
      
-     $('#facets .defaultFacet').append(P13NEngine.generateFacet('00001','John Doe'));
-     $("#PERSONALIZATION").parent().parent().find("ul").on('mouseenter mouseleave', 'li', P13NEngine.highlight);
-     $("#PERSONALIZATION").parent().parent().find("ul").on('click', 'li', P13NEngine.select);
+       $('#facets .defaultFacet').append(P13NEngine.generateFacet('00001','John Doe'));
+       $("#PERSONALIZATION").parent().parent().find("ul").on('mouseenter mouseleave', 'li', P13NEngine.highlight);
+       $("#PERSONALIZATION").parent().parent().find("ul").on('click', 'li', P13NEngine.select);
    
-     for(i = 0; i < facets.length; i++) {
-       facet = facets[i];
-       if(!facet.hasClass("selected")) {
-         facet.children().click();
+       for(i = 0; i < facets.length; i++) {
+         facet = facets[i];
+         if(!facet.hasClass("selected")) {
+           facet.children().click();
+         }
        }
      }
    } else {
