@@ -69,7 +69,7 @@
 
  
    var facet,
-   facets = this.getFacetListById('0001');
+   facets = P13NEngine.getFacetListById('0001');
 
    for(i = 0; i < facets.length; i++) {
      facet = $(facets[i]).parent().next();
@@ -93,7 +93,7 @@ P13NEngine.getFacetListById = function(id) {
       async:false
     });
     //Set Session Value
-    this.sessionStorage.setSession('p13n_'+id, fListJSON);
+    P13NEngine.sessionStorage.setSession('p13n_'+id, fListJSON);
   } 
   
   return fListJSON;
