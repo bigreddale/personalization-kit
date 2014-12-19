@@ -43,7 +43,7 @@
  P13NEngine.generateFacet = function(id, name) {
    var facet = $('<li>').append($('<span>').attr('class','PERSONALIZATION').html(name))
                .append($('<span>').attr('id','edit_PERSONALIZATION_'+id).attr('class','facet-item-count')
-                   .append($('<a>').attr('href','#').attr('rel',id).html('edit')));
+                   .append($('<a>').attr('href','#').attr('rel',id).html(' (edit)')));
    
    return facet;
  }
@@ -72,6 +72,7 @@
    };
    
    target.toggleClass('selected');
+   target.parent('.facet').toggleClass('selected');
    target.removeClass('active-facet-list');
    target.find('span').removeClass('facet-item-highlight');         
  };
