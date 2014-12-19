@@ -1,19 +1,24 @@
- var P13NEngine = {}; 
+ var P13NEngine = {},
  
  P13NEngine.init = function() {
-   
+
+   var sessionStorage;
+   require(['clientSideStorage'], function(css) {
+     sessionStorage = css;
+   });
+
    if($('#facets').length) {
      console.warn('facets found');
      if(!$('#PERSONALIZATION').length) {
     
-       $('#facets').prepend($('<div>').attr('class','facet')
+       var container = $('#facets').prepend($('<div>').attr('class','facet')
            .append($('<div>').attr('class','facet-name').append($('<h2>').attr('id','PERSONALIZATION').html('Shop For')))
            .append($('<div>').attr('class','clear-all').html('clear'))
            .append($('<div>').attr('class','clearFloats'))
            .append($('<ul>').attr('class','defaultFacet'))         
        );
      
-       $('#facets .defaultFacet').append(P13NEngine.generateFacet('00001','John Doe'));
+       $('.defaultFacet', container).append(P13NEngine.generateFacet('00001','John Doe'));
        $("#PERSONALIZATION").parent().parent().find("ul").on('mouseenter mouseleave', 'li', P13NEngine.highlight);
        $("#PERSONALIZATION").parent().parent().find("ul").on('click', 'li', P13NEngine.select);
    
@@ -79,7 +84,11 @@ $('a[href*="Inseam_size/36"]').parent().next()
  };
    
  P13NEngine.getFacetListById = function(id) {
- 
+   //Get From Session Storage
+   var fList = sessionStorage.getSession('p13n_'+id);
+   console.warn(fList);
+   //Get From Service
+   
  };
 
  
