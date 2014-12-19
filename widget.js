@@ -1,4 +1,4 @@
- var P13NEngine = {},
+ var P13NEngine = {}
  
  P13NEngine.init = function() {
 
