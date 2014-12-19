@@ -75,11 +75,11 @@
  P13NEngine.select = function(obj) {
    var target = $(obj.target);
    if(!target.is('li')) {
-     target = target.parent('li');
+     target = target.closest('li');
    };
    
    target.toggleClass('selected');
-   target.parent('.facet').toggleClass('selected');
+   target.closest('.facet').toggleClass('selected');
    target.removeClass('active-facet-list');
    target.find('span').removeClass('facet-item-highlight');         
  };
