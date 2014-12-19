@@ -82,7 +82,7 @@
    
 P13NEngine.getFacetListById = function(id) {
   //Get From Session Storage
-  var fListJSON = this.sessionStorage.getSession('p13n_'+id);
+  var fListJSON = P13NEngine.sessionStorage.getSession('p13n_'+id);
   if(!fListJSON) { 
     //Get From Service - STUBBED
     $.ajax({
