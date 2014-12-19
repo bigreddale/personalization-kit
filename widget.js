@@ -1,10 +1,10 @@
  var P13NEngine = {}
  
+ P13NEngine.sessionStorage;
  P13NEngine.init = function() {
 
-   var sessionStorage;
    require(['clientSideStorage'], function(css) {
-     sessionStorage = css;
+     P13NEngine.sessionStorage = css;
    });
 
    if($('#facets').length) {
@@ -18,7 +18,7 @@
            .append($('<ul>').attr('class','defaultFacet'))         
        );
      
-       $('.defaultFacet', container).append(P13NEngine.generateFacet('00001','John Doe'));
+       $('.defaultFacet', container).append(P13NEngine.generateFacet('0001','John Doe'));
        $("#PERSONALIZATION").parent().parent().find("ul").on('mouseenter mouseleave', 'li', P13NEngine.highlight);
        $("#PERSONALIZATION").parent().parent().find("ul").on('click', 'li', P13NEngine.select);
    
@@ -69,13 +69,10 @@
 
  
    var facet,
-   facets = [
-$('a[href*="INSEAM_SIZE\=36"]').parent().next(),
-$('a[href*="Inseam_size/36"]').parent().next()
-             ];
+   facets = this.getFacetListById('0001');
 
    for(i = 0; i < facets.length; i++) {
-     facet = facets[i];
+     facet = $(facets[i]).parent().next();
      if(!facet.hasClass("selected")) {
        facet.children().click();
      }
@@ -83,13 +80,19 @@ $('a[href*="Inseam_size/36"]').parent().next()
 
  };
    
- P13NEngine.getFacetListById = function(id) {
-   //Get From Session Storage
-   var fList = sessionStorage.getSession('p13n_'+id);
-   console.warn(fList);
-   //Get From Service
-   
- };
+P13NEngine.getFacetListById = function(id) {
+  //Get From Session Storage
+  var fListJSON = this.sessionStorage.getSession('p13n_'+id);
+  console.warn(fList);
+  if(!fListJSON) { 
+    //Get From Service
+    fListJSON = $.get('p13n_'+id+'.json');
+    //Set Session Value
+    this.sessionStorage.setSession('p13n_'+id, fListJSON);
+  } 
+  
+  return fListJSON;
+};
 
  
  $(document).ready(function(){
