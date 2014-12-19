@@ -83,10 +83,15 @@
 P13NEngine.getFacetListById = function(id) {
   //Get From Session Storage
   var fListJSON = this.sessionStorage.getSession('p13n_'+id);
-  console.warn(fList);
   if(!fListJSON) { 
-    //Get From Service
-    fListJSON = $.get('p13n_'+id+'.json');
+    //Get From Service - STUBBED
+    $.ajax({
+      url: 'https://rawgit.com/bigreddale/personalization-kit/master/p13n_'+id+'.json',
+      success: function(json) {
+        fListJSON = json;
+      },
+      async:false
+    });
     //Set Session Value
     this.sessionStorage.setSession('p13n_'+id, fListJSON);
   } 
