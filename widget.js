@@ -84,7 +84,7 @@ $('a[href*="Inseam_size/36"]').parent().next()
 
  
  $(document).ready(function(){
-   //MACYS.Faceted.selectedFacetEvent.subscribe(P13NEngine.init);
+   MACYS.Faceted.selectedFacetEvent.subscribe(P13NEngine.init);
    P13NEngine.init();
    console.warn('loaded init');
  });
