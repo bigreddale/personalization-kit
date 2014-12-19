@@ -17,15 +17,12 @@
            <div class="clear-all">clear</div> \
            <div class="clearFloats"></div> \
            <ul class="defaultFacet" height="120" style="height: auto;"> \
-           <li> \
-           <span class="PERSONALIZATION">John Doe</span>\
-           <span id="edit_PERSONALIZATION_John_Doe" class="facet-item-count">(<a href="#">edit</a>)</span> \
-           </li> \
            </ul>\
            </div>');
        
      }
      
+     $('#facets .defaultFacet').append(P13NEngine.generateFacet('00001','John Doe'));
      $("#PERSONALIZATION").parent().parent().find("ul").on('mouseenter mouseleave', 'li', P13NEngine.highlight);
      $("#PERSONALIZATION").parent().parent().find("ul").on('click', 'li', P13NEngine.select);
    
@@ -42,7 +39,15 @@
    
  
  }; 
-  
+ 
+ P13NEngine.generateFacet = function(id, name) {
+   var facet = $('<li>').append($('<span>').attr('class','PERSONALIZATION').html(name))
+               .append($('<span>').attr('id','edit_PERSONALIZATION_'+id).attr('class','facet-item-count')
+                   .append($('<a>').attr('href','#').attr('rel',id).html('edit')));
+   
+   return facet;
+ }
+ 
  P13NEngine.highlight = function(obj) {
    var target = $(obj.target);
    if(!target.is('li')) {
