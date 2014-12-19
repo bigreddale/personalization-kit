@@ -69,7 +69,7 @@ $('a[href*="INSEAM_SIZE\=36"]').parent().next(),
 $('a[href*="Inseam_size/36"]').parent().next()
              ];
 
-   for(i = 0; i < facets.l  ength; i++) {
+   for(i = 0; i < facets.length; i++) {
      facet = facets[i];
      if(!facet.hasClass("selected")) {
        facet.children().click();
@@ -84,7 +84,7 @@ $('a[href*="Inseam_size/36"]').parent().next()
 
  
  $(document).ready(function(){
-   MACYS.Faceted.selectedFacetEvent.subscribe(P13NEngine.init);
+   //MACYS.Faceted.selectedFacetEvent.subscribe(P13NEngine.init);
    P13NEngine.init();
    console.warn('loaded init');
  });
