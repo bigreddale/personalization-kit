@@ -1,11 +1,6 @@
  var P13NEngine = {}; 
  
  P13NEngine.init = function() {
-   var facet,
-       facets = [
- $('a[href*="INSEAM_SIZE\=36"]').parent().next(),
- $('a[href*="Inseam_size/36"]').parent().next()
-                 ];
    
    if($('#facets').length) {
      console.warn('facets found');
@@ -22,12 +17,6 @@
        $("#PERSONALIZATION").parent().parent().find("ul").on('mouseenter mouseleave', 'li', P13NEngine.highlight);
        $("#PERSONALIZATION").parent().parent().find("ul").on('click', 'li', P13NEngine.select);
    
-       for(i = 0; i < facets.length; i++) {
-         facet = facets[i];
-         if(!facet.hasClass("selected")) {
-           facet.children().click();
-         }
-       }
      }
    } else {
      console.warn('facets not found');
@@ -72,6 +61,21 @@
    target.closest('.facet').toggleClass('selected');
    target.removeClass('active-facet-list');
    target.find('span').removeClass('facet-item-highlight');         
+
+ 
+   var facet,
+   facets = [
+$('a[href*="INSEAM_SIZE\=36"]').parent().next(),
+$('a[href*="Inseam_size/36"]').parent().next()
+             ];
+
+   for(i = 0; i < facets.l  ength; i++) {
+     facet = facets[i];
+     if(!facet.hasClass("selected")) {
+       facet.children().click();
+     }
+   }
+
  };
    
  P13NEngine.getFacetListById = function(id) {
@@ -80,6 +84,7 @@
 
  
  $(document).ready(function(){
+   MACYS.Faceted.selectedFacetEvent.subscribe(P13NEngine.init);
    P13NEngine.init();
    console.warn('loaded init');
  });
