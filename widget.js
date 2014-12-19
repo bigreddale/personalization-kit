@@ -10,7 +10,7 @@
    if($('#facets').length) {
      console.warn('facets found');
      if(!$('#PERSONALIZATION').length) {
-       $('#facets').prepend('<div class="facet"> \
+/*       $('#facets').prepend('<div class="facet"> \
            <div class="facet-name"> \
              <h2 id="PERSONALIZATION">Shop For</h2>\
            </div>\
@@ -21,6 +21,13 @@
            </div>');
        
      }
+*/   
+     $('#facets').prepend($('<div>').attr('class','facet')
+         .append($('<div>').attr('class','facet-name').append($('<h2>').attr('id','PERSONALIZATION').html('Shop For')))
+         .append($('<div>').attr('class','clear-all').html('clear'))
+         .append($('<div>').attr('class','clearFloats'))
+         .append($('<ul>').attr('class','defaultFacet'))         
+     );
      
      $('#facets .defaultFacet').append(P13NEngine.generateFacet('00001','John Doe'));
      $("#PERSONALIZATION").parent().parent().find("ul").on('mouseenter mouseleave', 'li', P13NEngine.highlight);
@@ -77,8 +84,11 @@
    target.find('span').removeClass('facet-item-highlight');         
  };
    
-  
+ P13NEngine.getFacetListById = function(id) {
+ 
+ };
 
+ 
  $(document).ready(function(){
    P13NEngine.init();
    console.warn('loaded init');
