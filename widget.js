@@ -88,7 +88,7 @@ P13NEngine.getFacetListById = function(id) {
     $.ajax({
       url: 'https://rawgit.com/bigreddale/personalization-kit/master/p13n_'+id+'.json',
       success: function(json) {
-        fListJSON = JSON.parse(json);
+        fListJSON = json;
       },
       async:false
     });
