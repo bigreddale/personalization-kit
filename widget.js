@@ -15,8 +15,8 @@
            .append($('<div>').attr('class','facet-name').append($('<h2>').attr('id','PERSONALIZATION').html('Shop For')))
            .append($('<div>').attr('class','clear-all').html('clear'))
            .append($('<div>').attr('class','clearFloats'))
-           .append($('<ul>').attr('class','defaultFacet'))         
-       );
+           .append($('<ul>').attr('class','defaultFacet'));
+       
        $('#facets').prepend(container);
      
        $('.defaultFacet', container).append(P13NEngine.generateFacet('0001','John Doe'));
