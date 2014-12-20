@@ -88,12 +88,12 @@ P13NEngine.getFacetListById = function(id) {
     $.ajax({
       url: 'https://rawgit.com/bigreddale/personalization-kit/master/p13n_'+id+'.json',
       success: function(json) {
-        fListJSON = json;
+        fListJSON = JSON.parse(json);
       },
       async:false
     });
     //Set Session Value
-    P13NEngine.sessionStorage.setSession('p13n_'+id, fListJSON);
+    P13NEngine.sessionStorage.setSession('p13n_'+id, JSON.stringify(fListJSON));
   } 
   
   return fListJSON;
