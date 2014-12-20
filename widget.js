@@ -11,12 +11,13 @@
      console.warn('facets found');
      if(!$('#PERSONALIZATION').length) {
     
-       var container = $('#facets').prepend($('<div>').attr('class','facet')
+       var container = $('<div>').attr('class','facet')
            .append($('<div>').attr('class','facet-name').append($('<h2>').attr('id','PERSONALIZATION').html('Shop For')))
            .append($('<div>').attr('class','clear-all').html('clear'))
            .append($('<div>').attr('class','clearFloats'))
            .append($('<ul>').attr('class','defaultFacet'))         
        );
+       $('#facets').prepend(container);
      
        $('.defaultFacet', container).append(P13NEngine.generateFacet('0001','John Doe'));
        $("#PERSONALIZATION").parent().parent().find("ul").on('mouseenter mouseleave', 'li', P13NEngine.highlight);
@@ -102,6 +103,7 @@ P13NEngine.getFacetListById = function(id) {
  
  $(document).ready(function(){
    MACYS.Faceted.selectedFacetEvent.subscribe(P13NEngine.init);
+   MACYS.Faceted.productsFetchedEvent.subscribe(P13NEngine.init);
    P13NEngine.init();
    console.warn('loaded init');
  });
