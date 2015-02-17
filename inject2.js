@@ -21,7 +21,7 @@ function setZip(zip) {
 }
 
 function setSegment(seg) {
-  document.cookie='SEGMENT='+encodeURIComponent('%7B%22EXPERIMENT%22%3A%5B'+seg+'%5D%7D')+'; path=/;';
+  document.cookie='SEGMENT=%7B%22EXPERIMENT%22%3A%5B'+seg+'%5D%7D; path=/;';
   alert('set segment: ' + seg) ;
   
 }
