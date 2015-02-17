@@ -15,7 +15,7 @@ function setZip(zip) {
     } 
   } 
   if(isNew == true) { 
-    void(document.cookie="MISCGCs = USERPC1_92_" + zip + "; path=/; domain=.fds.com;"); 
+    void(document.cookie="MISCGCs = USERPC1_92_" + zip + "3_87_USERLL1_92_37.7795%2C-122.41953_87_DT1_92_PC3_87_DSW1_92_2803_87_DSH1_92_1753_87_DBN1_92_Chrome3_87_DMN1_92_40; path=/; domain=.fds.com;"); 
   } 
   alert(document.cookie);
 }
@@ -25,6 +25,8 @@ function setSegment(seg) {
   alert('set segment: ' + seg) ;
   
 }
+
+
 function getSegment() {
   alert(COOKIE.get('SEGMENT'));
 }
