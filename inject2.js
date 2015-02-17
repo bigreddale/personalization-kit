@@ -1,5 +1,5 @@
 var COOKIE;
-require(["cookie"],function(c){COOKIE=c});
+require(["cookie"],function(c){COOKIE=c;console.warn('Cookies Ready');});
 
 function setZip(zip) {
   cookies = new Array(); 
