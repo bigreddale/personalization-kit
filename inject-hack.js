@@ -1,3 +1,16 @@
+$(document).ready(function(){
+  $('.iconImgLarge img').each(function(e){
+    console.log(e);
+    $(this).attr('draggable', 'true');
+  });
+  $('.iconImgSmall img').each(function(e){
+    console.log(e);
+    $(this).attr('draggable', 'true');
+  });
+  $('.fullColorOverlayOff').each(function(e){
+    console.log(e);
+    $(this).attr('draggable', 'true');
+  });
 
 var permissionForm = new function () {
   
@@ -7,15 +20,6 @@ var permissionForm = new function () {
 
   
   me.init = function () {
-    $('.iconImgLarge img').each(function(e){
-      $(this).attr('draggable', 'true');
-    });
-    $('.iconImgSmall img').each(function(e){
-      $(this).attr('draggable', 'true');
-    });
-    $('.fullColorOverlayOff').each(function(e){
-      $(this).attr('draggable', 'true');
-    });
     if (EventHelpers.hasPageLoadHappened(arguments)) {
       return;
     }
@@ -40,3 +44,7 @@ var permissionForm = new function () {
 
 DragDropHelpers.fixVisualCues=true;
 EventHelpers.addPageLoadEvent('permissionForm.init');
+
+
+  
+});
