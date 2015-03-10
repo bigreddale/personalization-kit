@@ -27,6 +27,6 @@ $(document).ready(function(){
      break;
   
   }
-  
+  $("#row2_column1 img").show();
 });
 
