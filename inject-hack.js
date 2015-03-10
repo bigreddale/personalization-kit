@@ -26,8 +26,15 @@ var permissionForm = new function () {
   }
   
   
-
-  
+  $('.iconImgLarge img').each(function(e){
+    $(this).attr('draggable', 'true');
+  });
+  $('.iconImgSmall img').each(function(e){
+    $(this).attr('draggable', 'true');
+  });
+  $('.fullColorOverlayOff').each(function(e){
+    $(this).attr('draggable', 'true');
+  });
   
 }
 
