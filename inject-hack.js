@@ -7,7 +7,7 @@ $(document).ready(function(){
     console.log(e);
     $(this).attr('draggable', 'true');
   });
-  $('.fullColorOverlayOff').each(function(e){
+  $('.fullColorOverlayOff img').each(function(e){
     console.log(e);
     $(this).attr('draggable', 'true');
   });
