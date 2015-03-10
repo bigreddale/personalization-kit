@@ -7,6 +7,15 @@ var permissionForm = new function () {
 
   
   me.init = function () {
+    $('.iconImgLarge img').each(function(e){
+      $(this).attr('draggable', 'true');
+    });
+    $('.iconImgSmall img').each(function(e){
+      $(this).attr('draggable', 'true');
+    });
+    $('.fullColorOverlayOff').each(function(e){
+      $(this).attr('draggable', 'true');
+    });
     if (EventHelpers.hasPageLoadHappened(arguments)) {
       return;
     }
@@ -26,15 +35,6 @@ var permissionForm = new function () {
   }
   
   
-  $('.iconImgLarge img').each(function(e){
-    $(this).attr('draggable', 'true');
-  });
-  $('.iconImgSmall img').each(function(e){
-    $(this).attr('draggable', 'true');
-  });
-  $('.fullColorOverlayOff').each(function(e){
-    $(this).attr('draggable', 'true');
-  });
   
 }
 
