@@ -1,5 +1,5 @@
-$(document).ready(function(){
-  $('.iconImgLarge img').each(function(e){
+console.error('foo');
+$('.iconImgLarge img').each(function(e){
     console.log(e);
     $(this).attr('draggable', 'true');
   });
@@ -47,4 +47,4 @@ EventHelpers.addPageLoadEvent('permissionForm.init');
 
 
   
-});
+
