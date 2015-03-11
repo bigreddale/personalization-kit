@@ -1,3 +1,4 @@
+$(document).ready(function(){
 console.error($('.iconImgLarge img'));
 $('.iconImgLarge img').each(function(e){
     console.log(e);
@@ -11,7 +12,7 @@ $('.iconImgLarge img').each(function(e){
     console.log(e);
     $(this).attr('draggable', 'true');
   });
-
+});
 var permissionForm = new function () {
   
   var me = this;
