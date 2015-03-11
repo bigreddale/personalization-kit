@@ -1,4 +1,4 @@
-console.error('foo');
+console.error($('.iconImgLarge img'));
 $('.iconImgLarge img').each(function(e){
     console.log(e);
     $(this).attr('draggable', 'true');
@@ -15,9 +15,6 @@ $('.iconImgLarge img').each(function(e){
 var permissionForm = new function () {
   
   var me = this;
-  
-  
-
   
   me.init = function () {
     if (EventHelpers.hasPageLoadHappened(arguments)) {
