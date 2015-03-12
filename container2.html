@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html><head>
+	<title>jQuery UI Draggable</title>
+<script
+	src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"
+	type="text/javascript"></script>
+		<script type="text/javascript" src="http://www.useragentman.com/shared/js/EventHelpers.js"></script>
+		<script type="text/javascript" src="http://www.useragentman.com/shared/js/DragDropHelpers.js"></script>
+		<style>
+			.multibag { width: 300px; height: 300px; background-color:#ff0; overflow-y: scroll; position:fixed; right: 0px; top:0px;}
+		</style>
+		<script>
+		document.domain = "macys.com";
+
+		window.addEventListener("message", function(event) {
+		  var obj = $('.multibag');
+		  var position = obj.position();
+		  var top = position.top + window.scrollY;
+		  var bottom = top + obj.height();
+		  var right = position.left + obj.width();
+		  if(event.data.x > position.left && event.data.y > top && event.data.x < right && event.data.y < bottom) {
+	    	obj.append("<img src='"+event.data.src+"' height='60'/><br/>");
+		  } 
+		});	
+		
+		$(document).ready(function(){
+		  var $iframe = $('#frame');
+	
+		  function userDragEndEvent(e) {  
+		    var x = (window.Event) ? e.pageX : event.clientX + (document.documentElement.scrollLeft ? document.documentElement.scrollLeft : document.body.scrollLeft);
+		    var y = (window.Event) ? e.pageY : event.clientY + (document.documentElement.scrollTop ? document.documentElement.scrollTop : document.body.scrollTop);
+		    parent.postMessage({"x":x,"y":y, "src":e.target.src},'*');
+		  }
+	
+		  
+		  $iframe[0].addEventListener("load", function(event) {
+			  $($iframe).ready(function(){
+			    $iframe.contents().find('.fullColorOverlayOff img').each(function(e){
+			        EventHelpers.addEvent(this, 'dragend', userDragEndEvent);
+			      });
+			    });	      
+		  });
+		});
+		
+		</script>
+</head>
+<body style="cursor: auto;" >
+
+<iframe id="frame" src="http://www.macys.com" style="border: 0px; width: 1040px; height: 6000px; overflow:hidden"></iframe>
+<div class="multibag">
+</div>
+</body></html>
